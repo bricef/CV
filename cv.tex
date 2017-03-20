@@ -1,0 +1,359 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%% Simple LaTeX CV Template %%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% NOTE: If you find that it says                                     %%
+%%                                                                    %%
+%%                           1 of ??                                  %%
+%%                                                                    %%
+%% at the bottom of your first page, this means that the AUX file     %%
+%% was not available when you ran LaTeX on this source. Simply RERUN  %%
+%% LaTeX to get the ``??'' replaced with the number of the last page  %%
+%% of the document. The AUX file will be generated on the first run   %%
+%% of LaTeX and used on the second run to fill in all of the          %%
+%% references.                                                        %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Don't like 10pt? Try 11pt or 12pt
+\documentclass[10pt]{article}
+
+% This is a helpful package that puts math inside length specifications
+\usepackage{calc}
+
+\usepackage[T1]{fontenc}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Simpler bibsection for CV sections
+% (thanks to natbib for inspiration)
+\makeatletter
+\newlength{\bibhang}
+\setlength{\bibhang}{1em}
+\newlength{\bibsep}
+ {\@listi \global\bibsep\itemsep \global\advance\bibsep by\parsep}
+\newenvironment{bibsection}
+    {\minipage[t]{\linewidth}\list{}{%
+        \setlength{\leftmargin}{\bibhang}%
+        \setlength{\itemindent}{-\leftmargin}%
+        \setlength{\itemsep}{\bibsep}%
+        \setlength{\parsep}{\z@}%
+        }}
+    {\endlist\endminipage}
+\makeatother
+
+% Layout: Puts the section titles on left side of page
+\reversemarginpar
+
+%
+%         PAPER SIZE, PAGE NUMBER, AND DOCUMENT LAYOUT NOTES:
+%
+% The next \usepackage line changes the layout for CV style section
+% headings as marginal notes. It also sets up the paper size as either
+% letter or A4. By default, letter was used. If A4 paper is desired,
+% comment out the letterpaper lines and uncomment the a4paper lines.
+%
+% As you can see, the margin widths and section title widths can be
+% easily adjusted.
+%
+% ALSO: Notice that the includefoot option can be commented OUT in order
+% to put the PAGE NUMBER *IN* the bottom margin. This will make the
+% effective text area larger.
+%
+% IF YOU WISH TO REMOVE THE ``of LASTPAGE'' next to each page number,
+% see the note about the +LP and -LP lines below. Comment out the +LP
+% and uncomment the -LP.
+%
+% IF YOU WISH TO REMOVE PAGE NUMBERS, be sure that the includefoot line
+% is uncommented and ALSO uncomment the \pagestyle{empty} a few lines
+% below.
+%
+
+%% Use these lines for A4-sized paper
+\usepackage[paper=a4paper,
+            %includefoot, % Uncomment to put page number above margin
+            marginparwidth=30.5mm,    % Length of section titles
+            marginparsep=1.5mm,       % Space between titles and text
+            margin=25mm,              % 25mm margins
+            includemp]{geometry}
+
+%% More layout: Get rid of indenting throughout entire document
+\setlength{\parindent}{0in}
+
+%% This gives us fun enumeration environments. compactitem will be nice.
+\usepackage{paralist}
+
+%% Reference the last page in the page number
+%
+% NOTE: comment the +LP line and uncomment the -LP line to have page
+%       numbers without the ``of ##'' last page reference)
+%
+% NOTE: uncomment the \pagestyle{empty} line to get rid of all page
+%       numbers (make sure includefoot is commented out above)
+%
+\usepackage{fancyhdr,lastpage}
+\pagestyle{fancy}
+% \pagestyle{empty}      % Uncomment this to get rid of page numbers
+\fancyhf{}\renewcommand{\headrulewidth}{0pt}
+\fancyfootoffset{\marginparsep+\marginparwidth}
+\newlength{\footpageshift}
+\setlength{\footpageshift}
+          {0.5\textwidth+0.5\marginparsep+0.5\marginparwidth-2in}
+\lfoot{\hspace{\footpageshift}%
+       \parbox{4in}{\, \hfill %
+                    \arabic{page} of \protect\pageref*{LastPage} % +LP
+%                    \arabic{page}                               % -LP
+                    \hfill \,}}
+
+% Set up hyperlinks
+\usepackage{color,xcolor,soul,hyperref}
+\definecolor{darkblue}{rgb}{0.0,0.0,0.3}
+\hypersetup{colorlinks=true,
+            breaklinks,
+            linkcolor=darkblue,
+            urlcolor=darkblue,
+            anchorcolor=darkblue,
+            citecolor=darkblue,
+            linkbordercolor=darkblue}
+\newcommand{\linkto}[2]{\href{#1}{\color{darkblue}\setulcolor{darkblue}\ul{#2}}}
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Document Setup %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% The title (name) with a horizontal rule under it
+%
+% Usage: \makeheading{name}
+%
+% Place at top of document. It should be the first thing.
+\newcommand{\makeheading}[1]%
+        {\hspace*{-\marginparsep minus \marginparwidth}%
+         \begin{minipage}[t]{\textwidth+\marginparwidth+\marginparsep}%
+                {\large \bfseries #1}\\[-0.15\baselineskip]%
+                 \rule{\columnwidth}{1pt}%
+         \end{minipage}}
+
+% The section headings
+%
+% Usage: \section{section name}
+%
+% Follow this section IMMEDIATELY with the first line of the section
+% text. Do not put whitespace in between. That is, do this:
+%
+%       \section{My Information}
+%       Here is my information.
+%
+% and NOT this:
+%
+%       \section{My Information}
+%
+%       Here is my information.
+%
+% Otherwise the top of the section header will not line up with the top
+% of the section. Of course, using a single comment character (%) on
+% empty lines allows for the function of the first example with the
+% readability of the second example.
+\renewcommand{\section}[2]%
+        {\pagebreak[2]\vspace{1.3\baselineskip}%
+         \phantomsection\addcontentsline{toc}{section}{#1}%
+         \hspace{0in}%
+         \marginpar{
+         \raggedright \textbf{#1}}#2}
+
+\newcommand{\experience}[4]%
+        {\textbf{#1} \hfill #2 \\
+        {#4} \\
+        \textsc{Keywords:} \emph{#3}
+
+        \blankline
+
+        }
+
+% An itemize-style list with lots of space between items
+\newenvironment{outerlist}[1][\enskip\textbullet]%
+        {\begin{itemize}[#1]}{\end{itemize}%
+         \vspace{-.6\baselineskip}}
+
+% An environment IDENTICAL to outerlist that has better pre-list spacing
+% when used as the first thing in a \section
+\newenvironment{lonelist}[1][\enskip\textbullet]%
+        {\vspace{-\baselineskip}\begin{list}{#1}{%
+        \setlength{\partopsep}{0pt}%
+        \setlength{\topsep}{0pt}}}
+        {\end{list}\vspace{-.6\baselineskip}}
+
+% An itemize-style list with little space between items
+\newenvironment{innerlist}[1][\enskip\textbullet]%
+        {\begin{compactitem}[#1]}{\end{compactitem}}
+
+% To add some paragraph space between lines.
+% This also tells LaTeX to preferably break a page on one of these gaps
+% if there is a needed pagebreak nearby.
+\newcommand{\blankline}{\quad\pagebreak[2]}
+
+%
+
+%%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%% Begin CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\makeheading{Brice Fernandes}
+
+\blankline
+
+I am a talented and versatile software engineer with a broad range of technical expertise, as well as entrepreneurial and leadership experience. I am looking for an engaging technical leadership or problem solving role that will leverage my broad experience and let me contribute to a culture of technical excellence and growth.
+
+\section{Contact Information}
+%
+% NOTE: Mind where the & separators and \\ breaks are in the following
+%       table.
+%
+% ALSO: \rcollength is the width of the right column of the table
+%       (adjust it to your liking; default is 1.85in).
+%
+\newlength{\rcollength}\setlength{\rcollength}{7cm}%
+%
+\begin{tabular}[t]{@{}p{\textwidth-\rcollength}p{1.3cm}p{4cm}}
+416 City Road & \hfill\textit{e-mail:}   & brice@fractallambda.com\\
+Sheffield     & \hfill\textit{website:}  & \linkto{http://fractallambda.com}{fractallambda.com}\\
+S2 1GD        & \hfill\textit{twitter:}  & \linkto{https://twitter.com/fractallambda}{@fractallambda}\\
+UK            & \hfill\textit{mobile:}   & 07548312227\\
+\end{tabular}
+
+\section{Languages}
+%
+English, French (Native proficiency) \\
+Spanish (Basic reading \& listening comprehension)
+
+\section{Education}
+%
+\textbf{\textsc{The University Of Sheffield}} \hfill 2006 - 2010 \\
+\textbf{BSc. Physics with Computer Science}
+
+\section{Technical Skills}
+%
+\textsc{programming:} Functional Programming, Python, Javascript (ES6, React, Redux, NodeJS, Babel), Scheme,  Clojure, Jython, Java (OpenGL in Processing, GUI), Shell scripting (Bash), DVCS (Git, Mercurial), C, F\#, C\#, Unit Testing, Regular Expressions, Test Driven Development, RDF, Agile Methodologies (Scrum, Kanban, Pair Programming ...), Lean Software Development
+
+\blankline
+
+\textsc{administration:} Unix (GNU/Linux) administration, Docker, Apache, NGinx, Lighttpd, LAMP maintenance and administration, Virtualisation experience with VirtualBox and VMWare.
+
+\blankline
+
+\textsc{applications:} Common productivity packages on Windows, OSX and Linux, \TeX{}, %
+ \LaTeX{}, and B\textsc{ib}\TeX{}, Vim, Eclipse, 2D/3D CAD/Drafting (Solid Edge)
+
+\blankline
+
+\textsc{other:} AWS (S3, EB, IAM, EC2, CloudFront, Route53 ...), Game Development, Unity3D game engine, Firebase, Gulp, Natural language processing with NLTK, WxWidgets (Python), Numpy and Matplotlib (MATLAB equivalent), Python Imaging Library, Glib, GTK, Imagemagick, jQuery, SNMP, Analog and digital electronics: Basic filters, Digital Logic. HTML5, CSS, Less/Sass.
+
+\section{Talks \& Presentations}
+%
+\textbf{Using and Abusing Ruby For Computer Science Great Good} \hfill March 2016 \\
+\linkto{https://github.com/bricef/Using-and-Abusing-Ruby}{Code} and \linkto{https://github.com/bricef/Using-and-Abusing-Ruby/raw/master/Using-and-Abusing-Ruby.pdf}{slides} (PDF) available.
+
+\blankline
+
+\textbf{Building Objects With Functions} \hfill June 2015 \\ \linkto{http://fractallambda.com/building-objects-with-functions/}{An interactive version} as well as  \linkto{https://www.youtube.com/watch?v=XG9ajM-9iIg}{a recording} are available.
+
+\blankline
+
+\textbf{Getting Started With DataScript and Reagent} \hfill November 2014 \\
+Slides are \linkto{http://fractallambda.com/talks/datascript-reagent/}{ available online}.
+
+\section{Relevent Experience}
+\textbf{Founder at \linkto{https://decacoder.com}{Decacoder.com}} \hfill October 2015 - January 2016\\
+Founded an online education company delivering high quality online education to developers via a custom platform. I led the development of a scalable media delivery platform from scratch while also being responsible for all other business areas. I also set up a continuous integration and continuous deployment pipeline using AWS services, and was responsible for the educational design and user experience of all students using the platform. \\
+{\small \textsc{keywords:} \emph{Product development, Leadership, Javascript, ES6, React, Babel, Firebase, Continuous integration, Continuous deployment, AWS, Gulp, Stripe, Education, UX}}
+
+\blankline
+
+\textbf{Startup Mentor \& Coach, Accelerate Cambridge}  \hfill 2013 - 2016\\
+I was selected to be a founding coach and mentor for the University of Cambridge Judge Business School startup accelerator \linkto{https://www.jbs.cam.ac.uk/entrepreneurship/programmes/accelerate-cambridge/programmes/}{Accelerate Cambridge}. I delivered a startup founder education curriculum and coached teams on product design, technology strategy, development process, team management, pitching for investment and clear communication. Several of the startups I mentored received prestigious awards, including winning the Duke of York's Pitch@Palace competition. \\
+{\small \textsc{keywords:} \emph{Startups, Coaching, Business modelling, Pitching, Leadership, Investment, Technology Strategy}}
+
+\blankline
+
+\textbf{Instructor \& Coach, \linkto{https://www.jbs.cam.ac.uk/entrepreneurship/programmes/ignite/}{Ignite Program} }  \hfill July 2015\\
+I was an instructor and coach for the University of Cambridge Judge Business School Ignite programme. The Ignite programme is a one week course aimed at transform existing early stage enterprises through high quality lectures and challenging workshops. I was responsible for leading workshops during the program, ensuring that each attendee adopted the knowledge shared into their business practice.\\
+{\small \textsc{keywords:} \emph{Startups, Education, Coaching, Leadership, Event facilitation, Business Modelling}}
+
+\blankline
+
+\textbf{Founder, \linkto{https://www.meetup.com/Cambridge-Programmers-Study-Group/}{Cambridge Programmer Study Group}}  \hfill July 2014 - December 2016\\
+Founded the most active programming meetup in Cambridge, meeting twice a week to study computer science topics. Over two years we studied Machine Learning, Cryptography, Concurrency and Functional programming, amongst other topics.\\
+{\small \textsc{keywords:} \emph{Machine Learning, Functional Programming, Scheme, SICP, Neural Networks, Cryptography, Concurrency, Computer architecture, Compilers, Interpreters, Community building}}
+
+\blankline
+
+\textbf{Instructor, F\# developer course}  \hfill September 2015 - August 2016\\
+Successfully kickstarted an online tutorial series on the F\# programming language. Designed and delivered a curriculum that taught the real world applications the F\# language and functional programming, including type-driven design.\\
+{\small \textsc{keywords:} \emph{F\#, Functional Programming, Education, Screencasting, Kickstarter, Video production}}
+
+\blankline
+
+\textbf{Instructor, Unity3D Development Course}  \hfill August 2014 - August 2015 \\
+Sucessfully kickstarted an online tutorial series on game development using the Unity3D game engine. Designed a curriculum to teach programming for game development in the C\# language, including the fundamentals of computer science to a novice audience. The project was delivered over the Udemy.com online platform and reached over 100 000 students. The complete course was accredited for higher education credits and worth 10 European Credit Transfer System credits ($\sim$10\% of an undergraduate degree).\\
+{\small \textsc{keywords:} \emph{Education, Unity3D, C\#, Game Development, Screencasting, Kickstarter, Video production}}
+
+\blankline
+
+\textbf{Organiser and Facilitator, Startup Weekend}  \hfill 2013 - 2016\\
+I was an active organiser for the Cambridge Startup Weekend, organising and facilitating several weekend long events aimed at driving the  entrepreneurship spirit in the attendees. Several teams from these events went on to form companies, including several still in operation today.\\
+{\small \textsc{keywords:} \emph{Event facilitation, Community building, Startups}}
+
+\blankline
+
+\textbf{Project lead, Processed} \hfill October 2013 - August 2014\\
+Created a business process automation product with ideas from Flow Based Programming to automate common tasks in a business. Developed an SVG and Javascript online application to visually edit workflows, as well as embeddable widgets to place workflows on customer websites. \\
+{\small \textsc{keywords:} \emph{Business Automation, Business Intelligence, Javascript, SVG, Firebase}}
+
+\blankline
+
+\textbf{Software Engineer, Cambridge Broadband } \hfill March 2011 - October 2013 \\
+Developed and maintained a wide range of software to enable and support a microwave backhaul product at \linkto{http://cbnl.com}{Cambridge Broadband Ltd}. Worked on cross platform graphical user applications, embedded C network management using SNMP, internal tools and existing product maintenance. Was also part of a process improvement team that re-designed the software and product development process for the company. Took responsibility for technical recruitment of C developers, drafting requests for quotes and selecting and managing contractors.  \\
+{\small\textsc{keywords:} \emph{C, PPC, Embedded, Python, Linux, GTK, SNMP, Process improvement, Agile, RFQ, Recruitment}}
+
+\blankline
+
+\textbf{Intern, Intelligent Systems Research Laboratory} \hfill Summer 2010 \\
+Developed a Flow Based Programming framework to support an anomaly detection subsystem for the \linkto{http://www.isr.reading.ac.uk/}{Intelligent Systems Research Laboratory} at the University of Reading. Embedded Jython, Groovy, and Javascript programming languages in the Flow Based Programming Framework to enable application developers to work in their language of choice. \\
+{\small\textsc{keywords:} \emph{Java, Groovy, Jython, Flow Based Programming, Embedded languages, JVM, Distributed computing, Machine Learning, Clustering, Anomaly detection}}
+
+\blankline
+
+\textbf{Intern, Organisations, Information and Knowledge Group} \hfill Summer 2009\\
+I Worked as part of the Organisations, Information and Knowledge Group  at the University of Sheffield building a term recognition system for engineering documents. I developed a semantic extraction component in Java using the NLTK library accessed in Jython. Also designed a domain ontology for aerospace engineering. \\
+{\small\textsc{keywords:} \emph{Java, Jython, Java Servlet, XML, RDF, Tomcat, NLTK}}
+
+\blankline
+
+\textbf{Developer, \linkto{http://ledcube.googlecode.com}{LEDCube}} \hfill January 2009 - May 2009 \\
+Worked on a persistence of vision project. Developed a multithreaded application stack for custom hardware in a small team. OpenGL frontend written in Java communicating to microcontroller programmed in AVR C over custom serial protocol to control digital logic. I also manually optimised the Java implementation of the communication protocol from 900ms+ transmission latency to 112ms.\\
+{\small\textsc{keywords:} \emph{Java, AVR, C, Microcontroller, Multithreading, State Machine Protocols}}
+
+\blankline
+
+\textbf{Engineering Education Scheme} \hfill 2004 -2005 \\
+Worked in collaboration with Yorkshire Water to solve grit damage problem in sludge treatment plans. Designed and prototyped a solution as part of a team that became Young Engineers for Britain regional finalists. Earned BA Crest Gold Award. \\
+{\small\textsc{keywords:} \emph{Problem Solving, Teamwork, Drafting}}
+
+\blankline
+
+\textbf{Trainee CAD Engineer, AESSEAL head office} \hfill Summer 2004 \\
+Worked as trainee CAD engineer for international engineering company designing and modifying mechanical seals and 3D assets for corporate literature and website using 3D drafting software.\\
+{\small\textsc{keywords:} \emph{Drafting, 3D CAD, 2D CAD, Solid Egde}}
+
+\section{Awards}
+BA Crest Gold Award \\
+Young engineers for Britain Regional Finalists 2005 \\
+Best Technical, Startup Weekend Edingburgh August 2012 \\
+Winner, Startup Weekend Sheffield July 2013 \\
+Winner, Startup Weekend Sheffield July 2014
+
+\end{document}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%% End CV Document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%
