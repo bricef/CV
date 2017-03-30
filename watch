@@ -1,0 +1,1 @@
+echo "Brice-Fernandes-CV.tex" | entr texi2pdf Brice-Fernandes-CV.tex
