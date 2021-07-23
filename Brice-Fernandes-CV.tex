@@ -22,7 +22,7 @@
 
 % This is a helpful package that puts math inside length specifications
 \usepackage{calc}
-
+\usepackage{fontawesome}
 \usepackage[T1]{fontenc}
 \renewcommand{\familydefault}{\sfdefault}
 
@@ -203,11 +203,11 @@
 \makeheading{Brice Fernandes}
 
 \section{Summary}
-A talented and versatile technical leader with a broad range of expertise, I am looking for an engaging technical leadership or problem solving role that will leverage my experience and let me contribute to a culture of excellence and growth. 
+I am a talented and versatile technical leader with a broad range of expertise, I am looking for an engaging leadership or problem solving role that will leverage my experience and let me contribute to a culture of excellence and growth. 
 
-\blankline
+% \blankline
 
-I have a background in innovation and entrepreneurship, and founded multiple businesses. I was also a coach and mentor at the University of Cambridge Judge Business School, enabling startups and enterprises innovate and bring products to market.
+% I have a background in innovation and entrepreneurship, and founded multiple businesses. I was also a coach and mentor at the University of Cambridge Judge Business School, enabling startups and enterprises innovate and bring products to market.
 
 \section{Contact Information}
 %
@@ -217,16 +217,16 @@ I have a background in innovation and entrepreneurship, and founded multiple bus
 % ALSO: \rcollength is the width of the right column of the table
 %       (adjust it to your liking; default is 1.85in).
 %
-\newlength{\rcollength}\setlength{\rcollength}{7cm}%
+\newlength{\rcollength}\setlength{\rcollength}{12cm}%
 %
-\begin{tabular}[t]{@{}p{\textwidth-\rcollength}p{1.3cm}p{4cm}}
-416 City Road & \hfill\textit{e-mail:}   & brice@fractallambda.com\\
-Sheffield     & \hfill\textit{website:}  & \linkto{http://fractallambda.com}{fractallambda.com}\\
-S2 1GD        & \hfill\textit{twitter:}  & \linkto{https://twitter.com/fractallambda}{@fractallambda}\\
-UK            & \hfill\textit{mobile:}   & 07548312227\\
+\begin{tabular}[t]{@{}p{0.35cm}p{4cm}p{2.5cm}p{4.5cm}}
+\raggedright\faEnvelope & brice@fractallambda.com & \hfill\faStackOverflow & \linkto{https://stackoverflow.com/users/140264/brice?tab=profile}{stackoverflow.com/u/140264}\\
+\raggedright\faPhone &+0044 7548312227        & \hfill\faGlobe      & \linkto{http://fractallambda.com}{fractallambda.com}\\
+\raggedright\faHome &416 City Road                        & \hfill\faGithub        & \linkto{https://github.com/bricef}{github.com/bricef} \\
+&Sheffield           & \hfill\faTwitter       & \linkto{https://twitter.com/fractallambda}{@fractallambda}\\
+&S2 1GD              & & \\
+&UK                  & & \\
 \end{tabular}
-
-\blankline
 
 \section{Skills}
 %
@@ -238,7 +238,7 @@ UK            & \hfill\textit{mobile:}   & 07548312227\\
 
 \blankline
 
-\textsc{Software Development:} Functional Programming, Python, Javascript (ES6, React, Redux, NodeJS, Babel), Scheme, Clojure, Jython, Java (OpenGL in Processing, GUI), Shell scripting (Bash), DVCS (Git, Mercurial), C, F\#, C\#, Go, Unit Testing, Regular Expressions, Test Driven Development, RDF, Unity3D game engine, Firebase, Natural language processing (NLTK), WxWidgets (Python), Numpy and Matplotlib (MATLAB equivalent), Python Imaging Library (PIL/Pillow), Glib, GTK, Imagemagick, SNMP, HTML5, CSS, Less/Sass.
+\textsc{Software Development:} Functional Programming, Python, Javascript (ES6, React, Redux, NodeJS, Babel), Scheme, Clojure, Jython, Java (OpenGL in Processing, GUI), Shell scripting (Bash), DVCS (Git, Mercurial), C, F\#, C\#, Go, Unit Testing, Regular Expressions, Test Driven Development, RDF, Unity3D game engine, Firebase, Natural language processing (NLTK), WxWidgets (Python), Numpy and Matplotlib (MATLAB equivalent), Python Imaging Library (PIL/Pillow), Glib, GTK, Imagemagick, SNMP, HTML, CSS, Less/Sass.
 
 % \blankline
 
@@ -259,7 +259,12 @@ UK            & \hfill\textit{mobile:}   & 07548312227\\
 \textbf{\textsc{The University Of Sheffield}} \hfill 2006 - 2010 \\
 \textbf{BSc. Physics with Computer Science}
 
-\section{Talks \& Presentations}
+\section{Publications}
+%
+\linkto{https://www.cambridge.org/core/journals/cambridge-archaeological-journal/article/evolution-of-complementary-cognition-humans-cooperatively-adapt-and-evolve-through-a-system-of-collective-cognitive-search/F198B30682343E92C7E9C986332D380A}{The Evolution of Complementary Cognition: Humans Cooperatively Adapt and Evolve through a System of Collective Cognitive Search.}\\
+{\small Taylor, H., Fernandes, B., \& Wraight, S. (2021).  Cambridge Archaeological Journal, 1-17. doi:10.1017/S0959774321000329}
+
+\section{Selected Talks}
 %
 \textbf{Using and Abusing Ruby For Computer Science Great Good} \hfill March 2016 \\
 \linkto{https://github.com/bricef/Using-and-Abusing-Ruby}{Code} and \linkto{https://github.com/bricef/Using-and-Abusing-Ruby/raw/master/Using-and-Abusing-Ruby.pdf}{slides} (PDF) available.
@@ -295,10 +300,10 @@ Spanish (Basic reading \& listening comprehension)
 % 
 % {\small \textsc{keywords:} \emph{Kubernetes, GitOps, Cloud Native, Prometheus, Terraform, Pulumi, Monitoring, Observability, Customer Experience, Digital transformation, SRE, Training, Recruitment}}
 % \blankline
-\textbf{Lead Delivery Engineer at Weaveworks} \hfill September 2018 - Current\\
+\textbf{Delivery Engineer at Weaveworks} \hfill September 2018 - Current\\
 Delivered complex software engagements, carrying out both development and technical project leadership for some of our most high profile clients, including in regulated industries. I was also responsible for the design and delivery of GitOps and Cloud Native training. Worked on all aspects of commercial engagements, from pre-sales to delivery management.
 \begin{myitemize}
-        \item Defined the GitOps methodology principles used by entire company
+        \item Helped define the GitOps methodology principles used by entire company
         % \item Defined criteria for the GitOps consortium's certification programme
         \item Trusted key-holder for critical internal systems
         \item Designed and implemented customer engagement playbook
@@ -310,13 +315,13 @@ Delivered complex software engagements, carrying out both development and techni
 \blankline
 
 \textbf{Senior Development Engineer at Weaveworks} \hfill September 2017 - September 2018\\
-Developed Go tools for managing Kubernetes. Helped defined the GitOps methodology and communicate it to the developer community. Presented GitOps to conferences in the UK and internationally and delivered training on Kubernetes and GitOps. Member of the on-call engineering team directly responsible for the uptime and maintenance of our online SaaS platform.\\
+Developed Go tools for managing Kubernetes. Helped define the GitOps methodology and communicate it to the developer community. Presented GitOps to conferences in the UK and internationally and delivered training on Kubernetes and GitOps. Member of the on-call engineering team directly responsible for the uptime and maintenance of our online SaaS platform.\\
 {\small \textsc{keywords:} \emph{Kubernetes, GitOps, Cloud Native, Prometheus, Terraform, Go, On-Call, Incident response, DevOps, SRE, Developer Experience, Training, Recruitment}}
 
 \blankline
 
 
-\textbf{Founder at \linkto{https://decacoder.com}{Decacoder.com}} \hfill October 2015 - January 2017\\
+\textbf{Founder at Decacoder} \hfill October 2015 - January 2017\\
 Founded an online education company delivering high quality online education to developers via a custom platform. I led the development of a scalable media delivery platform from scratch while also being responsible for all other business areas. I also set up a continuous integration and continuous deployment pipeline using AWS services, and was responsible for the educational design and user experience of all students using the platform. \\
 {\small \textsc{keywords:} \emph{Product development, Leadership, Javascript, ES6, React, Babel, Firebase, Continuous integration, Continuous deployment, AWS, Gulp, Stripe, Education, UX}}
 
