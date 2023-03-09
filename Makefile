@@ -10,4 +10,7 @@ watch:
 clean:
 	rm Brice-Fernandes-CV.{aux,log,fls,out,pdf}
 
-.PHONY: clean
+spell: Brice-Fernandes-CV.tex
+	aspell --mode=tex -d en_GB -c Brice-Fernandes-CV.tex
+
+.PHONY: clean watch spell
