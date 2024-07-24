@@ -9,3 +9,5 @@ Brice-Fernandes-CV.out
 *.log
 *.fdb_latexmk
 *.bak
+*.fls
+*.synctex.gz
