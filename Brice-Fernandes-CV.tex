@@ -208,7 +208,13 @@
 \newcommand{\listkeywords}[1]%
         {\ifkeywords\keywords{#1}\blankline\par\fi}
 
-%
+% A bullet list with no extra space between items
+\newenvironment{myitemize}
+{ \begin{itemize}
+    \setlength{\itemsep}{0pt}
+    \setlength{\parskip}{0pt}
+    \setlength{\parsep}{0pt}     }
+{ \end{itemize}                  }
 
 %%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -217,8 +223,8 @@
 \begin{document}
 \makeheading{Brice Fernandes}
 
-\section{Summary}
-A versatile senior engineering leader who builds capability: in systems, in teams, and in the people who lead them. Experienced across the full software life cycle in complex and demanding environments, from embedded engineering to cloud-native architecture to running an engineering function, with unusual depth in governance, security and data protection. Key Achievements include being a founding coach on the University of Cambridge Judge Business School Startup Accelerator programmes and foundational contributions to the GitOps methodology.
+\section{Profile}
+Technology leader with a record of delivering in regulated, high-trust environments: application platforms for global banks, critical national infrastructure, and now learning platforms used by children in the UK, EU and US. Builds engineering organisations that treat security, data protection and compliance as part of how products are made, gives teams clear direction and real authority to decide, and sets AI strategy from first-hand experience of building AI systems. Helped define GitOps at Weaveworks, since adopted as an open standard under the Cloud Native Computing Foundation. An educator as well as an engineer: created a credit-bearing programming course taken by over 100,000 students, and helped shape the University of Cambridge Judge Business School's startup accelerator as one of its founding coaches.
 
 \section{Contact Information}
 %
@@ -258,43 +264,45 @@ A versatile senior engineering leader who builds capability: in systems, in team
 
 % Eligible for all UK security clearance levels.
 
-\newenvironment{myitemize}
-{ \begin{itemize}
-    \setlength{\itemsep}{0pt}
-    \setlength{\parskip}{0pt}
-    \setlength{\parsep}{0pt}     }
-{ \end{itemize}                  } 
-
 \section{Experience}
 %
 \textbf{Director of Engineering at \linkto{https://www.raspberrypi.org/}{Raspberry Pi Foundation}} \hfill September 2024 - Present\\
-Engineering leader for the Foundation's Digital Products division, accountable for engineering across multiple product teams building the learning platforms used by young people and educators worldwide. Line manager to the Engineering Manager cohort, reporting to the Chief Technology and Product Officer. Owned engineering vision and strategy, org design and resourcing, the engineering budget, and the security, compliance and data-protection posture of the digital estate. Member of the foundation's leadership team, representing engineering to the executive and management board.
+Engineering leader for the Foundation's Digital Products division, accountable for engineering across multiple product teams building the learning platforms used by young people and educators worldwide: around 20 engineers, led by five Engineering Managers. Report to the Chief Technology and Product Officer. Own engineering vision and strategy, org design and resourcing, the engineering budget, and the security, compliance and data-protection posture of the digital estate. With technology and product under one executive, also carry Foundation-wide technology work: the technology risk register and business continuity, the Foundation's data map, AI direction and open source strategy. Member of the Foundation's Leadership Team, representing engineering to the Executive team.
 
 \begin{myitemize}
-        \item Designed and landed a technology-agnostic engineering career framework (Apprentice to Principal, plus a distinct management track), now in active use across 1:1s, reviews and progression decisions
-        \item Established a working-group operating model with charters, tiers and explicit decision rights: eight autonomous groups covering security, architecture, AI, accessibility and people development with delegated authority and budget
-        \item Owned the US and global data residency strategy for a public-sector opportunity of $\sim$1M students, authoring the costed brief that framed the executive decision
-        \item Built the Foundation-wide data map ($\sim$90 systems, 20 data categories, 25 data flows) as the evidence base for ROPA and ongoing privacy compliance
-        \item Led the compliance and security programme for Digital Products: Cyber Essentials+, vendor security assessments, cloud access audits, software approval, business continuity and incident response
-        \item Directed engineering AI adoption through an adoption plan, a dedicated working group, and an adoption-maturity reporting tool built with external partners
-        \item Grew and stabilised the team through recruitment at every level, contractor procurement, and structured investment in people development, with measurable gains in retention
+
+\item Led the technical data residency strategy for a public-sector opportunity of $\sim$1M students, authoring the costed brief that framed the executive decision
+
+\item Directed engineering AI adoption through an adoption plan, a dedicated working group, and an adoption-maturity reporting tool built with external partners
+
+\item Built the Foundation-wide data map ($\sim$90 systems, 20 data categories, 25 data flows) as the evidence base for ROPA and ongoing privacy compliance
+
+\item Led technical compliance for products used by children in the UK, EU and US: Online Safety Act assessments, digital age of consent, data protection, and the vendor security assessment for major US school districts
+
+\item Led the security programme for Digital Products: Cyber Essentials Plus certification (achieved August 2026), penetration testing, cloud access audits, software approval, business continuity and incident response
+
+\item Established a working-group operating model with charters, tiers and explicit decision rights: autonomous groups covering Security, Architecture \& Infrastructure, AI Adoption, Accessibility, Design System, and Risk \& Compliance, each with delegated authority and budget
+
+\item Designed and landed a technology-agnostic engineering career framework (Apprentice to Principal, plus a distinct management track), now in active use across 1:1s, reviews and progression decisions
+
+\item Grew and stabilised the team through recruitment at every level, contractor procurement, and structured investment in people development
+
 \end{myitemize}
 
-\listkeywords{Engineering Leadership, Org Design, Career Frameworks, People Development, Recruitment, Engineering Strategy, Architecture, Data Protection, GDPR, ROPA, Compliance, Cyber Essentials+, Security, Budget Ownership, Delivery Management, AI Adoption, Education, Non-profit}
+\listkeywords{Engineering Leadership, Technology Strategy, Engineering Strategy, Org Design, Budget Ownership, Delivery Management, Architecture, AI Adoption, Responsible AI, Data Engineering, Data Protection, GDPR, ROPA, Online Safety, Data Residency, Compliance, Cyber Essentials Plus, Security, Career Frameworks, People Development, Recruitment, Open Source, Education, Non-profit}
 
 \textbf{DevOps Practice Leader at \linkto{https://www.capgemini.com/}{Capgemini}} \hfill January 2022 - June 2024\\
-Senior Leader of the DevOps practice for Capgemini UK Digital Customer Experience (DCX). Worked on commercial proposition development, aligning product, service and capability with both clients, market units, and other delivery areas in DCX and beyond. Owned the technology radar and external thought leadership for DevOps practice within the DCX delivery unit. Delivered client engagements for some of the UK's largest organisations.
+Senior Leader of the DevOps practice for Capgemini UK Digital Customer Experience (DCX), a practice of 30 to 40 people. Worked on commercial proposition development, aligning product, service and capability with clients, market units, and other delivery areas in DCX and beyond. Owned the technology radar and external thought leadership for the DevOps practice within the DCX delivery unit. Delivered client engagements for some of the UK's largest organisations, including Critical National Infrastructure in the energy sector.
 
-% CONFIRM: these bullets need numbers: size of the practice, people managed, scale of the engagements.
 \begin{myitemize}
         \item Worked on all aspects of capability management: products and offers, culture, training, recruitment and the career framework
-        \item Senior technical leader on client engagements, owning technical architecture and ways of working
-        \item Managed and mentored other senior leaders
+        \item Senior technical leader on client engagements, the largest worth over \pounds10M and delivered by consortiums, owning technical architecture and ways of working
+        \item Managed four to five managers directly, and mentored other senior leaders
         \item UK point of contact for Capgemini's Global DevOps Community
-        \item Security cleared to work on National Critical Infrastructure
+        \item Security cleared to work on Critical National Infrastructure
 \end{myitemize}
 
-\listkeywords{Senior Leadership, DevOps, Capability Management, Architecture, Delivery Management, Digital Transformation, Career Frameworks, Training, Recruitment, Product Management, National Critical Infrastructure}
+\listkeywords{Senior Leadership, DevOps, Capability Management, Architecture, Delivery Management, Digital Transformation, Career Frameworks, Training, Recruitment, Product Management, Critical National Infrastructure}
 
 \textbf{Senior Solution Architect at \linkto{https://weave.works}{Weaveworks}} \hfill September 2018 - September 2021\\
 Architected, developed and delivered hybrid cloud application platforms for some of the company's most high-profile clients, including in multiple regulated industries. Responsible for technical leadership and client relationships across commercial engagements, from pre-sales to delivery management, and for the design and delivery of GitOps and Cloud Native training for clients and partners.
@@ -303,17 +311,16 @@ Architected, developed and delivered hybrid cloud application platforms for some
         \item Helped define the principles of GitOps, since adopted as an open standard under the Cloud Native Computing Foundation, and taught them to clients, partners and the wider community
         \item Provided architecture consultancy for internal application platforms to global banks
         \item Led the design and architecture of the internal application platform to support the autonomous vehicle project of one of the world's largest companies
-        \item Led the initial design and architecture workshop for the re-platforming effort of a large European telecommunication provider
+        \item Led the initial design and architecture workshop for the re-platforming effort of a large European telecommunications provider
         \item Trusted key-holder for critical internal systems
-        \item Designed and implemented customer experience playbook
+        \item Designed and implemented the customer experience playbook
 \end{myitemize}
 
 \listkeywords{GitOps, Customer Experience, Delivery management, Kubernetes, Cloud Native, Pre-sales engineering, Monitoring, Observability, Digital transformation, SRE, Training, Recruitment}
 
 \textbf{Senior Development Engineer at \linkto{https://weave.works}{Weaveworks}} \hfill September 2017 - September 2018\\
-% CONFIRM: name the open source projects you contributed to, if any, in place of the company's.
-Developed Go tools for managing Kubernetes at an open source company whose products (Flux, Weave Net, Weave Scope) were built in the open with their user communities. Helped define the GitOps methodology and communicate it to the developer community. Presented GitOps to conferences in the UK and internationally and delivered training on Kubernetes and GitOps. Member of the on-call engineering team directly responsible for the uptime and maintenance of the company's online SaaS platform.
-\keywords{Kubernetes, GitOps, Cloud Native, Prometheus, Terraform, Go, On-Call, Incident response, DevOps, SRE, Developer Experience, Training, Recruitment}
+Developed Go tools for managing Kubernetes at an open source company whose products were built in the open with their user communities. Worked on Cortex, the horizontally scalable Prometheus service, and contributed to Flux and Weave Net. Helped define the GitOps methodology and communicate it to the developer community. Presented GitOps at conferences in the UK and internationally and delivered training on Kubernetes and GitOps. Member of the on-call engineering team directly responsible for the uptime and maintenance of the company's online SaaS platform.
+\keywords{Open Source, Kubernetes, GitOps, Cloud Native, Prometheus, Terraform, Go, On-Call, Incident response, DevOps, SRE, Developer Experience, Training, Recruitment}
 
 \blankline
 
@@ -358,7 +365,7 @@ Designed and delivered an online course teaching programming and the fundamental
 \blankline
 
 \textbf{Startup Mentor \& Founding Coach, \linkto{https://www.jbs.cam.ac.uk/entrepreneurship/programmes/accelerate-cambridge/programmes/}{Accelerate Cambridge}}  \hfill 2013 - 2016\\
-Selected as a founding coach and mentor for the University of Cambridge Judge Business School startup accelerator Accelerate Cambridge. Delivered a startup founder education curriculum and coached teams on product design, technology strategy, development process, team management, pitching for investment and clear communication. Several of the startups mentored received prestigious awards, including winning the Pitch@Palace competition.
+Selected as a founding coach and mentor for the University of Cambridge Judge Business School startup accelerator Accelerate Cambridge, and helped define the shape of the programme. Delivered a startup founder education curriculum and coached teams on product design, technology strategy, development process, team management, pitching for investment and clear communication. Several of the startups mentored received prestigious awards, including winning the Pitch@Palace competition.
 \keywords{Startups, Coaching, Business modelling, Pitching, Leadership, Investment, Technology Strategy}
 
 \blankline
@@ -370,8 +377,35 @@ Instructor and coach on the University of Cambridge Judge Business School's Igni
 \blankline
 
 \textbf{Founder, \linkto{https://www.meetup.com/Cambridge-Programmers-Study-Group/}{Cambridge Programmer Study Group}}  \hfill July 2014 - December 2016\\
-Founded the most active programming meetup in Cambridge, meeting twice a week to study computer science topics. Over two years the group studied Machine Learning, Cryptography, Concurrency and Functional programming, amongst other topics.
+Founded the most active programming meetup in Cambridge, meeting twice a week to study computer science topics. Over two years the group studied Machine Learning, Cryptography, Concurrency and Functional Programming, amongst other topics.
 \keywords{Community building, Computer science education, Machine Learning, Neural Networks, Cryptography, Concurrency, Functional Programming, Compilers}
+
+\blankline
+
+\section{Independent Work}
+%
+\textbf{\linkto{https://github.com/bricef/factor-q}{factor-q}}\\
+A self-hosted, event-driven runtime for operating multi-agent AI systems on long-running projects. Every agent action is an event on a durable bus, giving a full audit trail; each agent can use a different model provider, tools run sandboxed, and spending limits are enforced. Written in Rust on NATS, with the source available under the Business Source License.
+\keywords{AI Agents, Multi-agent Systems, Agent Orchestration, Event Sourcing, Rust, NATS}
+
+\blankline
+
+\textbf{\linkto{https://github.com/bricef/narrate}{narrate}}\\
+An open source tool that turns a Markdown script and a folder of pictures and clips into a narrated video on the author's own computer, with the voice-over generated by a local speech model and every scene timed to its narration. Runs as a command line, web studio, HTTP API, Docker image or GitHub Action.
+\keywords{Text-to-Speech, Video Production, Python, FFmpeg, Docker, Open Source}
+
+\blankline
+
+\textbf{\linkto{https://github.com/bricef/Taskflow}{TaskFlow}}\\
+An open source Kanban task tracker in which people and AI agents work on the same boards, with configurable workflow state machines and an audit trail of every action. Reached through a command line, terminal interface, HTTP API or Model Context Protocol server.
+\keywords{AI Agents, Model Context Protocol, MCP, Human-AI Collaboration, Go, Open Source}
+
+\blankline
+
+% Codren is the name of the character; the repository (manifested-mind) is private, so there is no link.
+\textbf{Codren}\\
+A fully interactive, domain-specific AI experience built on Claude: a persistent character for a tabletop role-playing group. It remembers each person across sessions, learns actively by finding the gaps in its own knowledge and asking about them, and personalises how it responds to each participant. Grounded in a searchable archive, with access enforced on the server by role so that material sealed from a player never reaches the model.
+\keywords{Conversational AI, Agent Memory, Active Learning, Personalisation, RAG, Claude}
 
 \blankline
 
@@ -403,8 +437,6 @@ Founded the most active programming meetup in Cambridge, meeting twice a week to
 \section{Certification \& Training}
 %
 \textbf{Santa Fe Institute Introduction to Agent Based Modelling} \hfill Achieved 2024\\
-% CONFIRM: the Scrum Alliance and AWS years below are inferred from the old "Valid to" dates
-% (Scrum Alliance certifications run two years, AWS three). Correct any that were renewals.
 \textbf{Scrum Alliance Certified Agile Leadership 2} \hfill Achieved 2024\\
 \textbf{Scrum Alliance Certified Agile Leadership 1} \hfill Achieved 2023\\
 \textbf{AWS Certified Machine Learning - Specialty} \hfill Achieved 2022\\
