@@ -196,6 +196,18 @@
 % if there is a needed pagebreak nearby.
 \newcommand{\blankline}{\quad\pagebreak[2]}
 
+% Keyword lines under each role, which give CV matching software an anchor
+% in the text. `make no-keywords` builds a copy without them, by defining
+% \hidekeywords before this file is read.
+\newif\ifkeywords\keywordstrue
+\ifdefined\hidekeywords\keywordsfalse\fi
+\newcommand{\keywords}[1]%
+        {\ifkeywords\par{\small \textsc{keywords:} \emph{#1}}\par\fi}
+% The same after a bullet list, which needs the gap to the next role added
+% back when the keywords are shown.
+\newcommand{\listkeywords}[1]%
+        {\ifkeywords\keywords{#1}\blankline\par\fi}
+
 %
 
 %%%%%%%%%%%%%%%%%%%%%%%% End Helper Commands %%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -268,9 +280,7 @@ Engineering leader for the Foundation's Digital Products division, accountable f
         \item Grew and stabilised the team through recruitment at every level, contractor procurement, and structured investment in people development, with measurable gains in retention
 \end{myitemize}
 
-{\small \textsc{keywords:} \emph{Engineering Leadership, Org Design, Career Frameworks, People Development, Recruitment, Engineering Strategy, Architecture, Data Protection, GDPR, ROPA, Compliance, Cyber Essentials+, Security, Budget Ownership, Delivery Management, AI Adoption, Education, Non-profit}}
-
-\blankline
+\listkeywords{Engineering Leadership, Org Design, Career Frameworks, People Development, Recruitment, Engineering Strategy, Architecture, Data Protection, GDPR, ROPA, Compliance, Cyber Essentials+, Security, Budget Ownership, Delivery Management, AI Adoption, Education, Non-profit}
 
 \textbf{DevOps Practice Leader at \linkto{https://www.capgemini.com/}{Capgemini}} \hfill January 2022 - June 2024\\
 Senior Leader of the DevOps practice for Capgemini UK Digital Customer Experience (DCX). Worked on commercial proposition development, aligning product, service and capability with both clients, market units, and other delivery areas in DCX and beyond. Owned the technology radar and external thought leadership for DevOps practice within the DCX delivery unit. Delivered client engagements for some of the UK's largest organisations.
@@ -284,9 +294,7 @@ Senior Leader of the DevOps practice for Capgemini UK Digital Customer Experienc
         \item Became Capgemini Global DevOps Community's UK point of contact
 \end{myitemize}
 
-{\small \textsc{keywords:} \emph{Senior Leadership, Capability Management, Architecture, Delivery Management, Digital Transformation, Recruitment, Product Management, National Critical Infrastructure}}
-
-\blankline
+\listkeywords{Senior Leadership, DevOps, Capability Management, Architecture, Delivery Management, Digital Transformation, Career Frameworks, Training, Recruitment, Product Management, National Critical Infrastructure}
 
 \textbf{Senior Solution Architect at \linkto{https://weave.works}{Weaveworks}} \hfill September 2018 - September 2021\\
 Architected, developed and delivered hybrid cloud application platforms for some of the company's most high-profile clients, including in multiple regulated industries. Responsible for both project technical leadership and client relationships.
@@ -304,20 +312,19 @@ Worked on all aspects of commercial engagements, from pre-sales to delivery mana
         \item Designed and implemented customer experience playbook
         \item Designed and delivered public and private Cloud Native training
 \end{myitemize}
-{\small \textsc{keywords:} \emph{GitOps, Customer Experience, Delivery management, Kubernetes, Cloud Native, Pre-sales engineering, Monitoring, Observability, Digital transformation, SRE, Training, Recruitment}}
 
-\blankline
+\listkeywords{GitOps, Customer Experience, Delivery management, Kubernetes, Cloud Native, Pre-sales engineering, Monitoring, Observability, Digital transformation, SRE, Training, Recruitment}
 
 \textbf{Senior Development Engineer at \linkto{https://weave.works}{Weaveworks}} \hfill September 2017 - September 2018\\
-Developed Go tools for managing Kubernetes. Helped define the GitOps methodology and communicate it to the developer community. Presented GitOps to conferences in the UK and internationally and delivered training on Kubernetes and GitOps. Member of the on-call engineering team directly responsible for the uptime and maintenance of our online SaaS platform.\\
-{\small \textsc{keywords:} \emph{Kubernetes, GitOps, Cloud Native, Prometheus, Terraform, Go, On-Call, Incident response, DevOps, SRE, Developer Experience, Training, Recruitment}}
+Developed Go tools for managing Kubernetes. Helped define the GitOps methodology and communicate it to the developer community. Presented GitOps to conferences in the UK and internationally and delivered training on Kubernetes and GitOps. Member of the on-call engineering team directly responsible for the uptime and maintenance of our online SaaS platform.
+\keywords{Kubernetes, GitOps, Cloud Native, Prometheus, Terraform, Go, On-Call, Incident response, DevOps, SRE, Developer Experience, Training, Recruitment}
 
 \blankline
 
 
 \textbf{Founder at Decacoder} \hfill October 2015 - January 2017\\
-Founded an online education company delivering high quality online education to developers via a custom platform. I led the development of a scalable media delivery platform from scratch while also being responsible for all other business areas. I also set up a continuous integration and continuous deployment pipeline using AWS services, and was responsible for the educational design and user experience of all students using the platform. Also became registered Data Protection Officer for the company.\\
-{\small \textsc{keywords:} \emph{Product development, Leadership, Javascript, ES6, React, Babel, Firebase, Continuous integration, Continuous deployment, AWS, Gulp, Stripe, Education, UX}}
+Founded an online education company delivering high quality online education to developers via a custom platform. I led the development of a scalable media delivery platform from scratch while also being responsible for all other business areas. I also set up a continuous integration and continuous deployment pipeline using AWS services, and was responsible for the educational design and user experience of all students using the platform. Also became registered Data Protection Officer for the company.
+\keywords{Education, Founder, Product development, Leadership, Educational design, UX, Data protection, JavaScript, React, AWS, Continuous integration, Continuous deployment}
 
 \blankline
 
@@ -341,34 +348,34 @@ Founded an online education company delivering high quality online education to 
 % \blankline
 
 \textbf{Software Engineer, \linkto{http://cbnl.com}{Cambridge Broadband} } \hfill March 2011 - October 2013 \\
-Developed and maintained a wide range of software to enable and support a microwave backhaul product at Cambridge Broadband. Worked on cross platform graphical user applications, embedded C network management using SNMP, internal tools and existing product maintenance. Was also part of a process improvement team that re-designed the software and product development process for the company. Took responsibility for technical recruitment of C developers, drafting requests for quotes and selecting and managing contractors.  \\
-{\small\textsc{keywords:} \emph{C, PPC, Embedded, Python, Linux, GTK, SNMP, Agile, RFQ, Recruitment}}
+Developed and maintained a wide range of software to enable and support a microwave backhaul product at Cambridge Broadband. Worked on cross platform graphical user applications, embedded C network management using SNMP, internal tools and existing product maintenance. Was also part of a process improvement team that re-designed the software and product development process for the company. Took responsibility for technical recruitment of C developers, drafting requests for quotes and selecting and managing contractors.
+\keywords{Embedded, C, Python, Linux, SNMP, Agile, Process improvement, Recruitment, Contractor management}
 
 \blankline
 
 \section{Teaching \& Mentoring}
 %
 \textbf{Instructor, Unity3D Development Course}  \hfill August 2014 - August 2015 \\
-Successfully kickstarted an online tutorial series on game development using the Unity3D game engine. Designed a curriculum to teach programming for game development in the C\# language, including the fundamentals of computer science to a novice audience. The project was delivered over the Udemy.com online platform and reached over 100 000 students. The complete course was accredited for higher education credits and worth 10 European Credit Transfer System credits ($\sim$10\% of an undergraduate degree).\\
-{\small \textsc{keywords:} \emph{Education, Unity3D, C\#, Game Development, Screencasting, Kickstarter, Video production}}
+Successfully kickstarted an online tutorial series on game development using the Unity3D game engine. Designed a curriculum to teach programming for game development in the C\# language, including the fundamentals of computer science to a novice audience. The project was delivered over the Udemy.com online platform and reached over 100 000 students. The complete course was accredited for higher education credits and worth 10 European Credit Transfer System credits ($\sim$10\% of an undergraduate degree).
+\keywords{Education, Curriculum design, Computer science, Online learning, Game Development, C\#, Unity3D, Kickstarter}
 
 \blankline
 
 \textbf{Startup Mentor \& Founding Coach, \linkto{https://www.jbs.cam.ac.uk/entrepreneurship/programmes/accelerate-cambridge/programmes/}{Accelerate Cambridge}}  \hfill 2013 - 2016\\
-I was selected to be a founding coach and mentor for the University of Cambridge Judge Business School startup accelerator Accelerate Cambridge. I delivered a startup founder education curriculum and coached teams on product design, technology strategy, development process, team management, pitching for investment and clear communication. Several of the startups I mentored received prestigious awards, including winning the Pitch@Palace competition. \\
-{\small \textsc{keywords:} \emph{Startups, Coaching, Business modelling, Pitching, Leadership, Investment, Technology Strategy}}
+I was selected to be a founding coach and mentor for the University of Cambridge Judge Business School startup accelerator Accelerate Cambridge. I delivered a startup founder education curriculum and coached teams on product design, technology strategy, development process, team management, pitching for investment and clear communication. Several of the startups I mentored received prestigious awards, including winning the Pitch@Palace competition.
+\keywords{Startups, Coaching, Business modelling, Pitching, Leadership, Investment, Technology Strategy}
 
 \blankline
 
 \textbf{Instructor \& Coach, \linkto{https://www.jbs.cam.ac.uk/entrepreneurship/programmes/ignite/}{Ignite Programme} }  \hfill July 2015, July 2017\\
-Instructor and coach for the University of Cambridge Judge Business School Ignite programme. The Ignite programme is a one week course aimed at transforming existing early stage enterprises through high quality lectures and challenging workshops. Responsible for leading workshops during the programme, ensuring that attendees adopted the knowledge shared into their business practice.\\
-{\small \textsc{keywords:} \emph{Startups, Education, Coaching, Leadership, Event facilitation, Business Modelling}}
+Instructor and coach for the University of Cambridge Judge Business School Ignite programme. The Ignite programme is a one week course aimed at transforming existing early stage enterprises through high quality lectures and challenging workshops. Responsible for leading workshops during the programme, ensuring that attendees adopted the knowledge shared into their business practice.
+\keywords{Startups, Education, Coaching, Leadership, Event facilitation, Business Modelling}
 
 \blankline
 
 \textbf{Founder, \linkto{https://www.meetup.com/Cambridge-Programmers-Study-Group/}{Cambridge Programmer Study Group}}  \hfill July 2014 - December 2016\\
-Founded the most active programming meetup in Cambridge, meeting twice a week to study computer science topics. Over two years we studied Machine Learning, Cryptography, Concurrency and Functional programming, amongst other topics.\\
-{\small \textsc{keywords:} \emph{Machine Learning, Functional Programming, Scheme, SICP, Neural Networks, Cryptography, Concurrency, Computer architecture, Compilers, Interpreters, Community building}}
+Founded the most active programming meetup in Cambridge, meeting twice a week to study computer science topics. Over two years we studied Machine Learning, Cryptography, Concurrency and Functional programming, amongst other topics.
+\keywords{Community building, Computer science education, Machine Learning, Neural Networks, Cryptography, Concurrency, Functional Programming, Compilers}
 
 \blankline
 
